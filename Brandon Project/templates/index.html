@@ -1,0 +1,22 @@
+{% extends 'customer.html'%}
+{%block content%}
+	<table class="w3-table-all w3-card-4 w3-animate-top">
+	<tr>
+		{% for h in header%}
+			<th>{{h | upper}}</th>
+		{%endfor%}
+	</tr>
+	
+		{%for students in student | sort (attribute='lastname')%}
+			<tr>
+				{% for key,value in students.items() %}
+					<td>{{value | upper}} </td>
+				{%endfor%}
+				<td>
+					<a href="/delete-customer-" class="w3-button w3-green w3-round-large">update</a>
+					<a class="w3-button w3-red w3-round-large">delete</a>
+				</td>
+			</tr>
+		{%endfor%}
+	</table>
+{%endblock%}
